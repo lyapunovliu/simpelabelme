@@ -2,7 +2,7 @@
 use qt to degin a  software for label image
 
 ## Usage
-![pic1](./GUI.jpg)
+![pic1](./GUI.png)
 
 ### image path
 

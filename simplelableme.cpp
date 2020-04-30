@@ -10,6 +10,14 @@ SimpleLableMe::SimpleLableMe(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SimpleLableMe)
 {
+
+    QDateTime dateTime = QDateTime::currentDateTime();
+
+    m_log_filename="zhanjiang_"+dateTime.toString("yyyyMMddhhmmss")+".txt";
+    log.init_log(m_log_filename);
+    qInstallMessageHandler((log.outputMessage));
+
+
     ui->setupUi(this);
     ui->label_img->setScaledContents(true);
     init_Point_Tableview();
@@ -87,6 +95,9 @@ void SimpleLableMe::on_pushButton_SaveDir_clicked()
     settings.setValue("save_labelresult_dir",fileName);
     m_xml_save_dir=fileName;
 
+    QString s1=settings.value("save_labelresult_dir").toString();
+    int i=0;
+
 }
 
 void SimpleLableMe::on_listView_doubleClicked(const QModelIndex &index)
@@ -107,6 +118,7 @@ void SimpleLableMe::on_listView_doubleClicked(const QModelIndex &index)
     m_current_filename_path=file_dir;
     Load_img_on_Label(ui->label_img,filename,true,ui->widget_img);
     m_img=cv::imread(filename.toStdString());
+    cv::waitKey(10);
 
     find_existing_xml();
 
@@ -435,6 +447,7 @@ void SimpleLableMe::restore_last_setting()
 
 
     m_xml_save_dir=settings.value("save_labelresult_dir").toString();
+    int i=0;
 
 }
 void SimpleLableMe::find_existing_xml()
@@ -743,5 +756,15 @@ void SimpleLableMe::on_pushButton_del_clicked()
 {
     int row=ui->tableView_points->currentIndex().row();
    image_points_model->removeRow(row);
+
+}
+
+void SimpleLableMe::on_listView_indexesMoved(const QModelIndexList &indexes)
+{
+
+}
+
+void SimpleLableMe::on_listView_clicked(const QModelIndex &index)
+{
 
 }

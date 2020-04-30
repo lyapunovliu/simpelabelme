@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        simplelableme.cpp
+        simplelableme.cpp \
+    logger_class.cpp
 
 HEADERS += \
-        simplelableme.h
+        simplelableme.h \
+    logger_class.h
 
 FORMS += \
         simplelableme.ui

@@ -10,6 +10,7 @@
 #include <QPainter>
 #include <QStandardItemModel>
 #include <QDomDocument>
+#include "logger_class.h"
 
 namespace Ui {
 class SimpleLableMe;
@@ -72,6 +73,10 @@ private slots:
 
     void on_pushButton_del_clicked();
 
+    void on_listView_indexesMoved(const QModelIndexList &indexes);
+
+    void on_listView_clicked(const QModelIndex &index);
+
 private:
     Ui::SimpleLableMe *ui;
 
@@ -105,6 +110,9 @@ private:
 
     int m_img_width;
     int m_img_height;
+
+    Logger_Class log;//日志类
+    QString m_log_filename;
 
 
 };

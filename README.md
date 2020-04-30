@@ -2,7 +2,7 @@ Simple LabelMe
 ======
 ##Usage
     use qt to degin a  software for label image
-![software GUI](https://github.com/lyapunovliu/simpelabelme/GUI.png)
+![software GUI](https://github.com/lyapunovliu/simpelabelme/blob/master/GUI.png)
 
 ### image path
 
